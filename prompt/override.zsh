@@ -10,6 +10,8 @@ override_user_name() {
 override_server_name() {
   if [[ "$HOST" == "rmcdonald-desktop" ]] ; then
     export OVERRIDE_HOST="passiv-desktop"
+  elif [[ "$HOST" == "rmcdonald-desktop-vm" ]] ; then
+    export OVERRIDE_HOST="passiv-desktop-vm"
   else
     export OVERRIDE_HOST=$HOST
   fi
