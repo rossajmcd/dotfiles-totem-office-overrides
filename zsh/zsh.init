@@ -1,0 +1,29 @@
+# initialise office overrides dotfiles
+# this is just to make me happy with the setup in the office, prompt overrides etc
+
+# shortcut to this dotfiles path is $ZSHOFFICEOVERRIDES
+export ZSHOFFICEOVERRIDES=$HOME/.dotfiles-office-overrides
+
+typeset -U portable_files
+office_override_files=($HOME/.dotfiles-office-overrides/**/*.zsh)
+
+for file in ${(M)office_override_files:#*/path.zsh}
+do
+  source $file
+done
+
+for file in ${office_override_files:#*/path.zsh}
+do
+  source $file
+done
+
+unset office_override_files%
+
+if [[ -a $ZSHOFFICEOVERRIDES/functions ]]
+then
+  fpath=($ZSHOFFICEOVERRIDES/functions $fpath)
+  autoload -U $ZSHOFFICEOVERRIDES/functions/*(:t)
+fi
+
+#add each topic folder to fpath so that they can add functions and completion scripts
+for topic_folder ($ZSHOFFICEOVERRIDES/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
