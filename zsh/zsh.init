@@ -4,6 +4,9 @@
 # shortcut to this dotfiles path is $ZSHOFFICEOVERRIDES
 export ZSHOFFICEOVERRIDES=$HOME/.dotfiles-office-overrides
 
+# passiv projects folder that we can `pp [return]` to
+export PASSIV_PROJECTS=~/Projects/passiv
+
 typeset -U portable_files
 office_override_files=($HOME/.dotfiles-office-overrides/**/*.zsh)
 

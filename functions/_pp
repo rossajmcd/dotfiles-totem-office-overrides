@@ -1,0 +1,2 @@
+#compdef pp
+_files -W $PASSIV_PROJECTS -/
